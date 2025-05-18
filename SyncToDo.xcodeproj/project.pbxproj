@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A10C69972DDA6A3500E3C228 /* NotionSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A10C69962DDA6A3500E3C228 /* NotionSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A10C69792DDA69A800E3C228 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10C69972DDA6A3500E3C228 /* NotionSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = SyncToDo;
 			packageProductDependencies = (
+				A10C69962DDA6A3500E3C228 /* NotionSwift */,
 			);
 			productName = SyncToDo;
 			productReference = A10C696B2DDA69A200E3C228 /* SyncToDo.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = A10C69622DDA69A200E3C228;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A10C69952DDA6A3500E3C228 /* XCRemoteSwiftPackageReference "NotionSwift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A10C696C2DDA69A200E3C228 /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A10C69952DDA6A3500E3C228 /* XCRemoteSwiftPackageReference "NotionSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chojnac/NotionSwift#";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A10C69962DDA6A3500E3C228 /* NotionSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A10C69952DDA6A3500E3C228 /* XCRemoteSwiftPackageReference "NotionSwift" */;
+			productName = NotionSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A10C69632DDA69A200E3C228 /* Project object */;
 }
