@@ -66,5 +66,5 @@ func fun() -> String {
         }
     }.resume()
     
-    return "OUTPUT"
+    return "HELLO WORLD"
 }
