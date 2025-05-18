@@ -30,7 +30,7 @@ func fun() -> String {
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     
-    request.addValue("Bearer ntn_D72368686077lYPKhn9N9D1uTZme1OkiQL7bfypM3HQdZf", forHTTPHeaderField: "Authorization")
+    request.addValue("Bearer MY_NOTION_TOKEN", forHTTPHeaderField: "Authorization")
     request.addValue("2022-06-28", forHTTPHeaderField: "Notion-Version")
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
