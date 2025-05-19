@@ -33,9 +33,38 @@
 		A10C69822DDA69A800E3C228 /* SyncToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A1254A002DDB52330019985A /* Exceptions for "SyncToDo" folder in "SyncToDoTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A10C69772DDA69A800E3C228 /* SyncToDoTests */;
+		};
+		A1254A012DDB52330019985A /* Exceptions for "SyncToDo" folder in "SyncToDoUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A10C69812DDA69A800E3C228 /* SyncToDoUITests */;
+		};
+		A1254A022DDB52860019985A /* Exceptions for "SyncToDo" folder in "SyncToDo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A10C696A2DDA69A200E3C228 /* SyncToDo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A10C696D2DDA69A200E3C228 /* SyncToDo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A1254A022DDB52860019985A /* Exceptions for "SyncToDo" folder in "SyncToDo" target */,
+				A1254A002DDB52330019985A /* Exceptions for "SyncToDo" folder in "SyncToDoTests" target */,
+				A1254A012DDB52330019985A /* Exceptions for "SyncToDo" folder in "SyncToDoUITests" target */,
+			);
 			path = SyncToDo;
 			sourceTree = "<group>";
 		};
@@ -409,6 +438,7 @@
 				DEVELOPMENT_TEAM = JMCZLCD8YR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SyncToDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,6 +467,7 @@
 				DEVELOPMENT_TEAM = JMCZLCD8YR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SyncToDo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
