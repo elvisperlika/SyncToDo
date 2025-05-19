@@ -6,48 +6,43 @@
 //
 import Foundation
 
-struct NotionAPI {
+class NotionAPI: ObservableObject {
     
-    var notionToken: String = ""
+    var token: String = ""
     
     func connect(token: String) -> NotionAPI {
-        var notion = NotionAPI()
-        notion.notionToken = token
-        return notion
+        self.token = token
+        return self
     }
     
-    func getUsers() -> Void {
+    func fetchUsers() async throws -> [User] {
+        print("fetching")
         let url = URL(string: "https://api.notion.com/v1/users")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
-        request.addValue("Bearer " + notionToken, forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(self.token)", forHTTPHeaderField: "Authorization")
         request.addValue("2022-06-28", forHTTPHeaderField: "Notion-Version")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let (data, _) = try await URLSession.shared.data(for: request)
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Errore: \(error)")
-                return
-            }
-            
-            guard let data = data else {
-                print("Nessun dato ricevuto.")
-                return
-            }
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let results = json["results"] as? [[String: Any]] {
-                    print(results)
-                } else {
-                    print("Formato JSON inatteso")
+        guard let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let results = json["results"] as? [[String: Any]] else {
+            print("Formato JSON inatteso")
+            return []
+        }
+        
+        var newUsers: [User] = []
+        for user in results {
+            if let type = user["type"] as? String, type == "person" {
+                let name = user["name"] as? String ?? "Sconosciuto"
+                if let person = user["person"] as? [String: Any],
+                   let mail = person["email"] as? String {
+                    let newUser = User(name: name, mail: mail)
+                    newUsers.append(newUser)
                 }
-            } catch {
-                print("Errore parsing JSON: \(error)")
             }
-            
-        }.resume()
+        }
+        return newUsers
     }
-    
 }

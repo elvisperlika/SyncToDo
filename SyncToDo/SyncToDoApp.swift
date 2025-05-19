@@ -9,21 +9,10 @@ import SwiftUI
 
 @main
 struct SyncToDoApp: App {
-    init() {
-        fun()
-    }
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
-
 }
 
-func fun() -> Void {
-    
-    let notionToken = ProcessInfo.processInfo.environment["NOTION_TOKEN"] ?? ""
-    let notion = NotionAPI().connect(token: notionToken)
-    notion.getUsers()
-}
