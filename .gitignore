@@ -90,3 +90,5 @@ iOSInjectionProject/
 
 
 .plist
+Info.plist
+Secrets.plist

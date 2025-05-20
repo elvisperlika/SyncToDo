@@ -16,7 +16,6 @@ class NotionAPI: ObservableObject {
     }
     
     func fetchUsers() async throws -> [User] {
-        print("fetching")
         let url = URL(string: "https://api.notion.com/v1/users")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

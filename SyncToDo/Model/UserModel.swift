@@ -13,9 +13,9 @@ class UserModel: ObservableObject {
     private var notion: NotionAPI
 
     init() {
-        let token = ProcessInfo.processInfo.environment["NOTION_TOKEN"] ?? ""
+        // let token = ProcessInfo.processInfo.environment["NOTION_TOKEN"] ?? ""
+        let token = loadNotionToken()
         self.notion = NotionAPI().connect(token: token)
-
         Task {
             await loadUsers()
         }
@@ -29,3 +29,14 @@ class UserModel: ObservableObject {
         }
     }
 }
+
+func loadNotionToken() -> String {
+    guard let url = Bundle.main.url(forResource: "Secrets", withExtension: "plist"),
+          let data = try? Data(contentsOf: url),
+          let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any],
+          let key = plist["NOTION_TOKEN"] as? String else {
+        fatalError("Chiave NOTION_KEY non trovata in Secrets.plist")
+    }
+    return key
+}
+

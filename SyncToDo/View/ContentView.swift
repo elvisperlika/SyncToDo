@@ -19,8 +19,8 @@ struct ContentView: View {
                     Text(user.mail).font(.subheadline).foregroundColor(.gray)
                 }
             }
-            .navigationTitle("Utenti")
-        }
+            .navigationTitle("Utenti nel workspace")
+        }.padding()
     }
 }
 
