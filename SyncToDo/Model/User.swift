@@ -9,4 +9,5 @@ struct User: Identifiable {
     var id: String { mail }
     let name: String
     let mail: String
+    var isDone: Bool
 }

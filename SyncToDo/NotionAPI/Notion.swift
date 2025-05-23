@@ -37,7 +37,7 @@ class NotionAPI: ObservableObject {
                 let name = user["name"] as? String ?? "Sconosciuto"
                 if let person = user["person"] as? [String: Any],
                    let mail = person["email"] as? String {
-                    let newUser = User(name: name, mail: mail)
+                    let newUser = User(name: name, mail: mail, isDone: false)
                     newUsers.append(newUser)
                 }
             }

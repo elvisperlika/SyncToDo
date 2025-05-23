@@ -12,15 +12,7 @@ struct ContentView: View {
     @StateObject private var model = UserModel()
 
     var body: some View {
-        NavigationView {
-            List(model.users) { user in
-                VStack(alignment: .leading) {
-                    Text(user.name).bold()
-                    Text(user.mail).font(.subheadline).foregroundColor(.gray)
-                }
-            }
-            .navigationTitle("Utenti nel workspace")
-        }.padding()
+        UserList(users: $model.users)
     }
 }
 

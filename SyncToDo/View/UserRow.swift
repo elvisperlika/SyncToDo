@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct UserRow: View {
+    @Binding var user: User
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(user.name)
+                    .font(.system(size: 25))
+                    .foregroundColor(user.isDone ? .gray : .primary)
+                    .strikethrough(user.isDone, color: .gray)
+                    .animation(.easeInOut, value: user.isDone)
+            }
+            Spacer()
+        }
+        .contentShape(Rectangle()) // <- abilita tap su tutto
+        .onTapGesture {
+            user.isDone.toggle()
+        }
     }
-}
-
-#Preview {
-    UserRow()
 }

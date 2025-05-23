@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct UserDetail: View {
+    @Binding var user: User
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("to fill")
+            .navigationTitle(user.name)
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-#Preview {
-    UserDetail()
-}

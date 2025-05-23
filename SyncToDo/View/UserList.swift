@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct UserList: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @Binding var users: [User]
+    
+    init(users: Binding<[User]>) {
+        self._users = users
+        UITableView.appearance().separatorStyle = .none
+        UITableViewCell.appearance().backgroundColor = .clear
+        UITableView.appearance().backgroundColor = .clear
     }
-}
-
-#Preview {
-    UserList()
+    
+    var body: some View {
+        List($users) { $user in
+            UserRow(user: $user)
+                .listRowBackground(Color.clear)
+        }
+        .background(.clear)
+    }
 }
